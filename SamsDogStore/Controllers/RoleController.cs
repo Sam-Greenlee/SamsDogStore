@@ -64,48 +64,6 @@ namespace SamsDogStore.Controllers
             return View("RoleStatus");
         }
 
-        public async Task<IActionResult> AddPaidCust()
-        {
-            bool x;
-
-            //Check and see if the Admin role exsists
-            x = await roleManager.RoleExistsAsync("Customer");
-
-            //If it does not exist then add the Admin role
-            if (!x)
-            {
-                //Create the role 
-                var role = new IdentityRole();
-                role.Name = "Customer";
-                await roleManager.CreateAsync(role);
-
-                //Create a Admin User
-                var user = new Models.ApplicationUser();
-                user.UserName = "Customer";
-                user.Email = "CustomerUser@Sams.com";
-
-                //Assign a password to the user
-                string userPWD = "Customer@1234";
-
-                //create user with password
-                IdentityResult chkUser = await userManager.CreateAsync(user, userPWD);
-
-                if (chkUser.Succeeded)
-                {
-                    var result1 = await userManager.AddToRoleAsync(user, "Customer");
-
-                    ViewData["Message"] = "Success role created";
-                }
-
-            }
-            else
-            {
-                ViewData["Message"] = "Sorry that role already exists!";
-            }
-
-
-            return View("RoleStatus");
-        }
         public IActionResult Index()
         {
             return View();

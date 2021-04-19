@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SamsDogStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SamsDogStore.Controllers
 {
@@ -29,6 +30,8 @@ namespace SamsDogStore.Controllers
             return View();
         }
 
+        //Only allow registgered users to access this page
+        [Authorize]
         public IActionResult Dogs()
         {
             ViewData["Message"] = "Here are our dogs ready for adoption.";

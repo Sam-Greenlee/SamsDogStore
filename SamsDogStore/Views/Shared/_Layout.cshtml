@@ -34,9 +34,10 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
-                    @* This is where you want to start locking things down based on role controls *@
                     @* You now want to look at SamsHotRods Views/Role folder to be able to initialize the roles *@
                     <li><a asp-area="" asp-controller="Home" asp-action="Dogs">Dogs For Sale</a></li>
+
+                    <li><a asp-area="" asp-controller="Home" asp-action="CustomerExperiences">Customer Experiences</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

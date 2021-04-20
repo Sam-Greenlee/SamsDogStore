@@ -39,6 +39,15 @@ namespace SamsDogStore.Controllers
             return View();
         }
 
+        //Only allow registgered users to access this page
+        [Authorize]
+        public IActionResult CustomerExperiences()
+        {
+            ViewData["Message"] = "Please comment on your experiences with our store.";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

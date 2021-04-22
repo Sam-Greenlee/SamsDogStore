@@ -33,10 +33,13 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-
-                    @* You now want to look at SamsHotRods Views/Role folder to be able to initialize the roles *@
                     <li><a asp-area="" asp-controller="Home" asp-action="Dogs">Dogs For Sale</a></li>
                     <li><a asp-area="" asp-controller="UserExperiences" asp-action="Create">User Stories</a></li>
+
+                    @*@if (User.IsInRole("Admin"))
+                    {
+                        <li><a asp-area="" asp-controller="role" asp-action="Index">Manage Roles</a></li>
+                    }*@
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

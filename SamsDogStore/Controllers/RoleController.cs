@@ -9,7 +9,8 @@ using SamsDogStore.Models;
 
 namespace SamsDogStore.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //Fix this some how to allow the creation of Admin role to be locked
+    //[Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

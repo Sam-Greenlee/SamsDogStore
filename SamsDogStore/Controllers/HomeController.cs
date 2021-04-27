@@ -39,6 +39,15 @@ namespace SamsDogStore.Controllers
             return View();
         }
 
+        //Only allow registgered users to access this page
+        [Authorize]
+        public IActionResult DogsPending()
+        {
+            ViewData["Message"] = "Here are our dogs pending for adoption.";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
